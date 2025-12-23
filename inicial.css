@@ -1,0 +1,96 @@
+/* Remove margens padrão */
+body {
+    margin: 0;
+    padding: 0;
+    background: #41c2ab;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* FUNDO GIRATÓRIO */
+.bg-full {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 160%;          /* Garante que cubra toda a tela */
+    transform: translate(-50%, -50%) rotate(0deg);
+    animation: rotateBg 24s linear infinite;
+    opacity: 0.35;        /* Transparência bonita */
+    z-index: -1;
+}
+
+@keyframes rotateBg {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+/* CÍRCULO (caso você use depois) */
+.circle-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 420px;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    opacity: 1;
+}
+
+/* Container principal */
+.center-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    z-index: 2;
+}
+
+/* Títulos */
+.title {
+    width: 300px;
+}
+
+.subtitle {
+    width: 260px;
+}
+
+/* Botão START */
+.start-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    animation: pulse 1.6s ease-in-out infinite;
+}
+
+.start-btn img {
+    width: 200px;
+}
+
+/* Animação do botão */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+.fade-out {
+  animation: fadeOut 0.6s ease forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

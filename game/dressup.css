@@ -1,0 +1,190 @@
+/* ===============================
+   BASE DA PÁGINA
+================================ */
+body {
+  margin: 0;
+  height: 100vh;
+  background: url("../game/assets/background/fundo.png") center / cover no-repeat;
+}
+
+/* ===============================
+   PERSONAGEM / CENA
+================================ */
+#game {
+  position: absolute;
+  bottom: 32px;
+  left: 755px;
+  width: 270px;
+}
+
+/* imagem base */
+#base {
+  width: 100%;
+  height: auto;
+  display: block;
+  z-index: 1;
+}
+
+/* sombra geral do personagem */
+#game img {
+  filter: drop-shadow(0 10px 12px rgba(0, 0, 0, 0.25));
+}
+
+/* ===============================
+   ROUPAS (LAYERS)
+================================ */
+#roupas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* layer base */
+.layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+  display: none;
+}
+
+/* só aparece se tiver src válido */
+.layer[src]:not([src=""]) {
+  display: block;
+}
+
+/* máscara do rosto */
+#face-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: 6;
+  pointer-events: none;
+}
+
+/* ordem das roupas */
+#sapato-layer     { z-index: 2; }
+#calca-layer      { z-index: 3; }
+#camisa-layer     { z-index: 4; }
+#acessorios-layer { z-index: 7; }
+
+/* ===============================
+   ARMÁRIO
+================================ */
+#area-armario {
+  position: absolute;
+  top: 100px;
+  right: 40px;
+  width: 260px;
+
+  background: linear-gradient(180deg, #f7b7b7, #f4a6a6);
+  border-radius: 22px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+  padding: 12px;
+}
+
+/* título */
+.titulo-closet {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 22px;
+  font-weight: bold;
+  color: #4a2c2a;
+  text-align: center;
+  margin-bottom: 14px;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+/* ===============================
+   CATEGORIAS
+================================ */
+#categorias {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.categoria {
+  width: 48px;
+  cursor: pointer;
+  background: #ffe3e3;
+  border-radius: 12px;
+  padding: 6px;
+  transition: 0.15s;
+}
+
+.categoria:hover {
+  background: #ffd0d0;
+  transform: translateY(-2px);
+}
+
+/* ===============================
+   ITENS DO ARMÁRIO
+================================ */
+#itens {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 12px;
+  margin-bottom: 16px;
+  justify-content: center;
+}
+
+#itens img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  cursor: pointer;
+
+  background: #ffecec;
+  border-radius: 14px;
+  padding: 6px;
+
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+#itens img:hover {
+  background: #fff;
+  transform: scale(1.05);
+}
+
+/* item ativo (futuro uso) */
+.item.ativo {
+  background: #fff;
+  box-shadow: 0 0 0 2px #ff9aa2;
+}
+
+/* ===============================
+   BOTÕES (RESET / SALVAR)
+================================ */
+.botoes-armario {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.img-btn,
+.save-btn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.img-btn img,
+.save-btn img {
+  width: 90px;
+  transition: transform 0.15s ease;
+}
+
+.img-btn:hover img,
+.save-btn:hover img {
+  transform: scale(1.05)
+}
