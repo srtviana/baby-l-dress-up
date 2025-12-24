@@ -188,3 +188,46 @@ body {
 .save-btn:hover img {
   transform: scale(1.05)
 }
+/* =========================
+   MOBILE – LAYOUT FINAL
+========================= */
+@media (max-width: 768px) {
+
+  body {
+    overflow-x: hidden;
+  }
+
+  /* PERSONAGEM */
+  #game {
+    position: absolute;
+    bottom: 5vh;          /* 🔼 sobe o Baby L */
+    left: 18vw;
+
+    width: 48vw;
+    max-width: 360px;
+
+    transform: scale(1.3);
+    transform-origin: bottom left;
+    z-index: 2;
+  }
+
+  /* ARMÁRIO */
+  #area-armario {
+    position: absolute;
+    top: 2.5vh;              /* 🔼 sobe o closet */
+    right: 12.8vw;
+
+    width: 345vw;
+    max-width: 265px;
+
+    transform: scale(1.1);
+    transform-origin: top right;
+    z-index: 3;
+  }
+
+  /* BOTÕES */
+  .botoes-armario {
+    justify-content: center;
+    gap: 10px;
+  }
+}

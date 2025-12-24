@@ -10,26 +10,7 @@ body {
     align-items: center;
 }
 
-/* FUNDO GIRATÓRIO */
-.bg-full {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 160%;          /* Garante que cubra toda a tela */
-    transform: translate(-50%, -50%) rotate(0deg);
-    animation: rotateBg 24s linear infinite;
-    opacity: 0.35;        /* Transparência bonita */
-    z-index: -1;
-}
 
-@keyframes rotateBg {
-    from {
-        transform: translate(-50%, -50%) rotate(0deg);
-    }
-    to {
-        transform: translate(-50%, -50%) rotate(360deg);
-    }
-}
 
 /* CÍRCULO (caso você use depois) */
 .circle-bg {
@@ -93,4 +74,81 @@ body {
   to {
     opacity: 0;
   }
+}
+
+/* ===============================
+   RESET / BASE
+================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* ===============================
+   FUNDO FIXO (NÃO GIRA)
+================================ */
+.bg-full {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* ===============================
+   CAMADA GIRATÓRIA DECORATIVA
+   (ESSA é a mágica)
+================================ */
+body::before {
+  content: "";
+  position: fixed;
+  inset: -40%;
+  background: url("game/assets/tela/fundo.png") center / cover no-repeat;
+  opacity: 0.25;
+  animation: girar 40s linear infinite;
+  z-index: 0;
+}
+
+/* animação suave */
+@keyframes girar {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ===============================
+   CONTEÚDO CENTRAL
+================================ */
+.center-column {
+  position: relative;
+  z-index: 2;
+
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* ===============================
+   MOBILE (AJUSTES FINOS)
+================================ */
+@media (max-width: 768px) {
+
+  body::before {
+    inset: -50%; /* garante que nunca apareçam pontas */
+  }
+
 }
