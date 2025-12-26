@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Closet ✦ Baby L</title>
   <link rel="stylesheet" href="dressup.css">
 </head>
 
 <body>
 
+<!-- botão mobile -->
+<button id="abrir-armario-btn" class="btn-abrir-armario">☰ Closet</button>
 
- <div id="game">
+<div id="overlay-armario"></div>
+
+<div id="game">
   <img id="base" src="assets/L/1.png">
-
- <!-- máscara do rosto -->
   <img id="face-mask" src="assets/L/1.1.png">
-
 
   <div id="roupas">
     <img id="camisa-layer" class="layer">
@@ -26,17 +26,8 @@
   </div>
 </div>
 
-
-  <!-- ARMÁRIO -->
-  <div id="area-armario">
-<div class="armario">
-  <div class="armario">
-   <h2 class="titulo-closet">✦ Closet ✦</h2>
-
-
-</div>
-
-</div>
+<div id="area-armario">
+  <h2 class="titulo-closet">✦ Closet ✦</h2>
 
   <div id="categorias">
     <img class="categoria" data-cat="acessorios" src="assets/armario/acessorios.png">
@@ -45,21 +36,14 @@
     <img class="categoria" data-cat="sapato" src="assets/armario/sapato.png">
   </div>
 
-  <!-- 👇 ESSE CARA AQUI É ESSENCIAL -->
   <div id="itens"></div>
 
   <div class="botoes-armario">
-    <button class="img-btn" id="reset-btn">
-     
-
-      <img src="assets/ui/resetar.png">
-    </button>
-
-    <button class="save-btn" id="btn-salvar">
-      <img src="assets/ui/salvar.png">
-    </button>
+    <button id="reset-btn"><img src="assets/ui/resetar.png"></button>
+    <button id="btn-salvar"><img src="assets/ui/salvar.png"></button>
   </div>
+</div>
 
-  <script src="dressup.js"></script>
+<script src="dressup.js"></script>
 </body>
 </html>

@@ -1,31 +1,44 @@
 /* ===============================
-   BASE DA PÁGINA
+   RESET GLOBAL
 ================================ */
-body {
+* {
   margin: 0;
-  height: 100vh;
-  background: url("../game/assets/background/fundo.png") center / cover no-repeat;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
 /* ===============================
-   PERSONAGEM / CENA
+   FUNDO
+================================ */
+body {
+  background: url("assets/background/fundo.png") center / cover no-repeat;
+  position: relative;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ===============================
+   PERSONAGEM
 ================================ */
 #game {
   position: absolute;
   bottom: 32px;
-  left: 755px;
+  left: 55%;
+  transform: translateX(-50%);
   width: 270px;
-}
-
-/* imagem base */
-#base {
-  width: 100%;
-  height: auto;
-  display: block;
   z-index: 1;
 }
 
-/* sombra geral do personagem */
+#base {
+  width: 100%;
+  display: block;
+}
+
 #game img {
   filter: drop-shadow(0 10px 12px rgba(0, 0, 0, 0.25));
 }
@@ -35,23 +48,17 @@ body {
 ================================ */
 #roupas {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
 }
 
-/* layer base */
 .layer {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
   pointer-events: none;
   display: none;
 }
 
-/* só aparece se tiver src válido */
 .layer[src]:not([src=""]) {
   display: block;
 }
@@ -59,45 +66,42 @@ body {
 /* máscara do rosto */
 #face-mask {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
-  height: auto;
   z-index: 6;
   pointer-events: none;
 }
 
-/* ordem das roupas */
+/* ordem das camadas */
 #sapato-layer     { z-index: 2; }
 #calca-layer      { z-index: 3; }
 #camisa-layer     { z-index: 4; }
 #acessorios-layer { z-index: 7; }
 
 /* ===============================
-   ARMÁRIO
+   ARMÁRIO (DESKTOP - BASE)
 ================================ */
 #area-armario {
   position: absolute;
-  top: 100px;
+  top: 90px;
   right: 40px;
   width: 260px;
 
   background: linear-gradient(180deg, #f7b7b7, #f4a6a6);
   border-radius: 22px;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
-  padding: 12px;
+  padding: 14px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+
+  z-index: 3;
 }
 
 /* título */
 .titulo-closet {
-  font-family: 'Georgia', 'Times New Roman', serif;
-  font-size: 22px;
-  font-weight: bold;
-  color: #4a2c2a;
   text-align: center;
+  font-size: 22px;
+  color: #4a2c2a;
   margin-bottom: 14px;
-  letter-spacing: 0.5px;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+  font-weight: bold;
 }
 
 /* ===============================
@@ -105,47 +109,43 @@ body {
 ================================ */
 #categorias {
   display: flex;
-  gap: 10px;
   justify-content: center;
-  margin-bottom: 14px;
+  gap: 8px;
+  margin-bottom: 12px;
 }
 
 .categoria {
   width: 48px;
-  cursor: pointer;
-  background: #ffe3e3;
-  border-radius: 12px;
   padding: 6px;
+  border-radius: 12px;
+  background: #ffd0d0;
+  cursor: pointer;
   transition: 0.15s;
 }
 
 .categoria:hover {
-  background: #ffd0d0;
   transform: translateY(-2px);
 }
 
 /* ===============================
-   ITENS DO ARMÁRIO
+   ITENS
 ================================ */
 #itens {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  margin-top: 12px;
+  gap: 12px;
+  padding: 10px;
   margin-bottom: 16px;
-  justify-content: center;
 }
 
 #itens img {
   width: 64px;
   height: 64px;
   object-fit: contain;
-  cursor: pointer;
-
-  background: #ffecec;
+  padding: 4px;
   border-radius: 14px;
-  padding: 6px;
-
+  background: #ffecec;
+  cursor: pointer;
   transition: transform 0.15s ease, background 0.15s ease;
 }
 
@@ -154,80 +154,136 @@ body {
   transform: scale(1.05);
 }
 
-/* item ativo (futuro uso) */
-.item.ativo {
-  background: #fff;
-  box-shadow: 0 0 0 2px #ff9aa2;
-}
-
 /* ===============================
-   BOTÕES (RESET / SALVAR)
+   BOTÕES
 ================================ */
 .botoes-armario {
   display: flex;
   justify-content: center;
-  gap: 12px;
-  margin-top: 16px;
+  gap: 18px;
 }
 
-.img-btn,
-.save-btn {
-  background: transparent;
+#reset-btn,
+#btn-salvar {
+  background: none;
   border: none;
-  padding: 0;
   cursor: pointer;
 }
 
-.img-btn img,
-.save-btn img {
+#reset-btn img,
+#btn-salvar img {
   width: 90px;
   transition: transform 0.15s ease;
 }
 
-.img-btn:hover img,
-.save-btn:hover img {
-  transform: scale(1.05)
+#reset-btn:hover img,
+#btn-salvar:hover img {
+  transform: scale(1.05);
 }
-/* =========================
-   MOBILE – LAYOUT FINAL
-========================= */
+
+/* ===============================
+   OVERLAY (BASE - ESCONDIDO)
+================================ */
+#overlay-armario {
+  display: none;
+}
+
+/* botão abrir armário (mobile) */
+.btn-abrir-armario {
+  display: none;
+}
+
+/* ===============================
+   MOBILE
+================================ */
 @media (max-width: 768px) {
 
-  body {
-    overflow-x: hidden;
-  }
-
-  /* PERSONAGEM */
+  /* personagem */
   #game {
-    position: absolute;
-    bottom: 5vh;          /* 🔼 sobe o Baby L */
-    left: 18vw;
-
+    left: 50%;
+    bottom: 6vh;
     width: 48vw;
-    max-width: 360px;
-
-    transform: scale(1.3);
-    transform-origin: bottom left;
+    max-width: 340px;
+    transform: translateX(-50%) scale(1.25);
+    transform-origin: bottom center;
     z-index: 2;
   }
 
-  /* ARMÁRIO */
+  /* armário mobile */
   #area-armario {
-    position: absolute;
-    top: 2.5vh;              /* 🔼 sobe o closet */
-    right: 12.8vw;
+    position: fixed;
+    top: 3vh;
+    right: 5vw;
+    width: 90vw;
+    max-width: 320px;
 
-    width: 345vw;
-    max-width: 265px;
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.95);
+    transition: all 0.25s ease;
 
-    transform: scale(1.1);
-    transform-origin: top right;
-    z-index: 3;
+    z-index: 10;
   }
 
-  /* BOTÕES */
-  .botoes-armario {
-    justify-content: center;
-    gap: 10px;
+  body.armario-aberto #area-armario {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
+  }
+
+  /* overlay mobile */
+  #overlay-armario {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+    /*backdrop-filter: blur(2px)*/
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+    z-index: 0;
+  }
+
+  body.armario-aberto #overlay-armario {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* botão mobile */
+  .btn-abrir-armario {
+    display: block;
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    z-index: 20;
+
+    background: #ffdede;
+    border: none;
+    border-radius: 14px;
+    padding: 12px 16px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #4a2c2a;
+    box-shadow: 0 6px 16px rgba(0,0,0,.25);
+  }
+}
+
+/* ===============================
+   DESKTOP FIX (GARANTIA)
+================================ */
+@media (min-width: 769px) {
+
+  #overlay-armario {
+    display: none !important;
+  }
+
+  #area-armario {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transform: none !important;
+  }
+
+  .btn-abrir-armario {
+    display: none !important;
   }
 }

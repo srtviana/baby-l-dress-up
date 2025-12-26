@@ -3,11 +3,20 @@ musicaFundo.loop = true;
 musicaFundo.volume = 0.25;
 
 const btnStart = document.getElementById("btn-start");
+document.addEventListener("DOMContentLoaded", () => {
+  const startBtn = document.getElementById("start-btn");
 
-btnStart.addEventListener("click", () => {
-  document.body.classList.add("fade-out");
+  if (!startBtn) {
+    console.error("Botão START não encontrado no HTML");
+    return;
+  }
 
-  setTimeout(() => {
-    window.location.href = "game/dressup.html";
-  }, 600);
+  startBtn.addEventListener("click", () => {
+    // efeito opcional
+    document.body.classList.add("fade-out");
+
+    setTimeout(() => {
+      window.location.href = "game/dressup.html";
+    }, 400);
+  });
 });
