@@ -2,7 +2,6 @@ const musicaFundo = new Audio("game/assets/sounds/musica/fundo.wav");
 musicaFundo.loop = true;
 musicaFundo.volume = 0.25;
 
-const btnStart = document.getElementById("btn-start");
 document.addEventListener("DOMContentLoaded", () => {
   const startBtn = document.getElementById("start-btn");
 
@@ -12,11 +11,10 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   startBtn.addEventListener("click", () => {
-    // efeito opcional
     document.body.classList.add("fade-out");
 
     setTimeout(() => {
-      window.location.href = "game/dressup.html";
+      window.location.href = "game/";
     }, 400);
   });
 });
