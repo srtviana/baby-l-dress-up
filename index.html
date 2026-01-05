@@ -3,21 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Baby L's Dress-Up</title>
-  <link rel="stylesheet" href="inicial.css">
+  <title>Baby L — Game</title>
+  <meta http-equiv="refresh" content="0; url=game/hub.html">
 </head>
-
 <body>
+  <p style="text-align:center; margin-top:40px;">
+    Redirecionando para o Baby L…  
+    <a href="game/hub.html">Clique aqui se não for automaticamente.</a>
+  </p>
 
-  <div class="center-column">
-    <img class="title" src="../game/dressup/assets/tela/titulo.png" alt="Baby L Dress-Up">
-    <img class="subtitle" src="../game/dressup/assets/tela/game.png" alt="Game">
-
-    <button id="start-btn" class="start-btn">
-      <img src="../game/dressup/assets/tela/start.png" alt="Start">
-    </button>
-  </div>
-
-  <script src="inicial.js"></script>
+  <script>
+    // fallback, se o meta não funcionar
+    window.location.href = "game/hub.html";
+  </script>
 </body>
 </html>
