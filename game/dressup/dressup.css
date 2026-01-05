@@ -63,7 +63,6 @@ body {
   display: block;
 }
 
-/* máscara do rosto */
 #face-mask {
   position: absolute;
   inset: 0;
@@ -72,14 +71,13 @@ body {
   pointer-events: none;
 }
 
-/* ordem das camadas */
 #sapato-layer     { z-index: 2; }
 #calca-layer      { z-index: 3; }
 #camisa-layer     { z-index: 4; }
 #acessorios-layer { z-index: 7; }
 
 /* ===============================
-   ARMÁRIO (DESKTOP - BASE)
+   ARMÁRIO (DESKTOP)
 ================================ */
 #area-armario {
   position: absolute;
@@ -92,7 +90,7 @@ body {
   padding: 14px;
   box-shadow: 0 12px 30px rgba(0,0,0,0.25);
 
-  z-index: 3;
+  z-index: 5;
 }
 
 /* título */
@@ -102,6 +100,35 @@ body {
   color: #4a2c2a;
   margin-bottom: 14px;
   font-weight: bold;
+}
+
+/* ===============================
+   BOTÃO MINIGAMES 🎮
+================================ */
+#open-games {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+
+  width: 44px;
+  height: 44px;
+
+  border-radius: 50%;
+  border: none;
+
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(4px);
+
+  font-size: 22px;
+  cursor: pointer;
+
+  z-index: 10;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+  transition: transform 0.15s ease;
+}
+
+#open-games:hover {
+  transform: scale(1.1);
 }
 
 /* ===============================
@@ -182,13 +209,12 @@ body {
 }
 
 /* ===============================
-   OVERLAY (BASE - ESCONDIDO)
+   OVERLAY / MOBILE
 ================================ */
 #overlay-armario {
   display: none;
 }
 
-/* botão abrir armário (mobile) */
 .btn-abrir-armario {
   display: none;
 }
@@ -198,7 +224,6 @@ body {
 ================================ */
 @media (max-width: 768px) {
 
-  /* personagem */
   #game {
     left: 50%;
     bottom: 6vh;
@@ -209,7 +234,6 @@ body {
     z-index: 2;
   }
 
-  /* armário mobile */
   #area-armario {
     position: fixed;
     top: 3vh;
@@ -231,17 +255,15 @@ body {
     transform: scale(1);
   }
 
-  /* overlay mobile */
   #overlay-armario {
     display: block;
     position: fixed;
     inset: 0;
     background: rgba(0,0,0,0.35);
-    /*backdrop-filter: blur(2px)*/
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.25s ease;
-    z-index: 0;
+    z-index: 5;
   }
 
   body.armario-aberto #overlay-armario {
@@ -249,7 +271,6 @@ body {
     pointer-events: auto;
   }
 
-  /* botão mobile */
   .btn-abrir-armario {
     display: block;
     position: fixed;
@@ -268,22 +289,48 @@ body {
   }
 }
 
-/* ===============================
-   DESKTOP FIX (GARANTIA)
-================================ */
-@media (min-width: 769px) {
 
-  #overlay-armario {
-    display: none !important;
-  }
+.btn-games {
+  position: fixed;
+  bottom: 20px;
+  right: 16px;
 
-  #area-armario {
-    opacity: 1 !important;
-    pointer-events: auto !important;
-    transform: none !important;
-  }
+  background: rgba (255, 255, 255, 0.85);
+  border: none;
+  border-radius: 14px;
 
-  .btn-abrir-armario {
-    display: none !important;
+  padding: 10px 16px;
+  font-size: 14px;
+  color: #444;
+
+  box-shadow: 0 6px 16px rgba (0, 0, 0, .2);
+
+  z-index: 100;
+}
+
+@media (max-width: 480px) {
+.btn-games {
+  position: fixed;
+  bottom: 16px;
+  left: 16px;
+
+  padding: 10px 14px;
+  font-size: 14px;
+
+  background: rgba(255,255,255,0.9);
+  border: none;
+  border-radius: 14px;
+
+  box-shadow: 0 6px 16px rgba(0,0,0,.25);
+  z-index: 9999;
+}
+
+@media (max-width: 480px) {
+  .btn-games {
+    bottom: 16px;
+    left: 16px;
+    right: auto;
   }
+}
+
 }

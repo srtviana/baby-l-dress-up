@@ -225,3 +225,16 @@ function fecharArmario() {
 
 abrirBtn.addEventListener("click", abrirArmario);
 overlay.addEventListener("click", fecharArmario);
+
+
+// ======================================
+// BOTÃO ABIR MINIGAMES
+// =====================================
+const openGamesBtn = document.getElementById("open-games");
+
+ if (openGamesBtn) {
+  openGamesBtn.addEventListener("click", () => {
+    window.location.href= "../hub.html";
+  });
+ }
+ 

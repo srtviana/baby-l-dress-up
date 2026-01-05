@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jogo da Velha ✦ Baby L</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <audio id="bg-music" src="../../dressup/assets/sounds/musica/fundo.wav" loop></audio>
+
+  <div id="game-wrapper">
+
+    <a href="../../hub.html" class="btn-voltar" id="btn-voltar">Voltar</a>
+
+    <div class="game-container">
+
+      <div class="game-header">
+        <h1>Jogo da Velha</h1>
+        <p>Você vs L</p>
+      </div>
+
+      <div id="scoreboard">
+        <span>Você: <strong id="score-player">0</strong></span>
+        <span>L: <strong id="score-l">0</strong></span>
+        <span>Empates: <strong id="score-draw">0</strong></span>
+      </div>
+
+      <div id="board">
+        <button class="cell" data-index="0"></button>
+        <button class="cell" data-index="1"></button>
+        <button class="cell" data-index="2"></button>
+        <button class="cell" data-index="3"></button>
+        <button class="cell" data-index="4"></button>
+        <button class="cell" data-index="5"></button>
+        <button class="cell" data-index="6"></button>
+        <button class="cell" data-index="7"></button>
+        <button class="cell" data-index="8"></button>
+      </div>
+
+      <p id="status">Sua vez 😌</p>
+      
+      <button id="reset-btn">Reiniciar</button>
+
+    </div>
+
+<div id="scene">
+  <!-- Sofá sozinho -->
+  <img id="scene-sofa" src="assets/background/sofa.png" alt="Sofá do L">
+
+  <!-- Baby L vindo do closet -->
+  <div id="baby-l">
+    <img id="l-base"  src="../../dressup/assets/L/1.png"   alt="Baby L base">
+    <img id="l-face"  src="../../dressup/assets/L/1.1.png" alt="Rosto do Baby L">
+
+    <img id="l-acessorios" class="l-layer" alt="">
+    <img id="l-camisa"     class="l-layer" alt="">
+    <img id="l-calca"      class="l-layer" alt="">
+    <img id="l-sapato"     class="l-layer" alt="">
+  </div>
+</div>
+
+
+    <!-- 💭 Balão de pensamento do L -->
+    <div id="thought-bubble">
+      <p id="thought-text"></p>
+    </div>
+
+
+  
+  <script src="script.js"></script>
+  
+</body>
+</html>

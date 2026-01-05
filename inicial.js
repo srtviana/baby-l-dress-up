@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.classList.add("fade-out");
 
     setTimeout(() => {
-      window.location.href = "game/";
+      window.location.href = "../game/dressup/index.html";
     }, 400);
   });
 });
